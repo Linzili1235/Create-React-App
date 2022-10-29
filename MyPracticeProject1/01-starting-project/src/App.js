@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 
 import AddUser from "./Components/Users/AddUser";
 import UsersList from "./Components/Users/UsersList";
-import usersList from "./Components/Users/UsersList";
 
 function App() {
     const [userList, setUserList] = useState([]); //initiate with empty array
@@ -15,11 +14,11 @@ function App() {
         });
     };
   return (
-    <div>
+    <React.Fragment>
       <AddUser onAddUser={addUserHandler}></AddUser>
         <UsersList users={userList}></UsersList>
 
-    </div>
+    </React.Fragment>
   );
 }
 

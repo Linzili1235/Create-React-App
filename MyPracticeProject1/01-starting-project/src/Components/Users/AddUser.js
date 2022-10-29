@@ -4,7 +4,6 @@ import classes from './AddUser.module.css';
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
 
-
 const AddUser = props =>{
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredUserage, setEnteredUserage] = useState(''); //initialize with string here
@@ -53,8 +52,12 @@ const AddUser = props =>{
     };
 
 return(
-    <div>
-        {error && <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}/>}
+    <React.Fragment>
+        {error &&
+            <ErrorModal
+                title={error.title}
+                message={error.message}
+                onConfirm={errorHandler}/>}
     <Card className={classes.input}>
     <form onSubmit={addUserHandler}>
         <label htmlFor='username'>UserName</label>
@@ -66,7 +69,7 @@ return(
         <Button type='submit' onConfirm={errorHandler}>Add User</Button>
     </form>
         </Card>
-        </div>
+        </React.Fragment>
 )
 
 };
