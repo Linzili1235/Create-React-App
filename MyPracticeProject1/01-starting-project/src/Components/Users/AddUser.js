@@ -1,10 +1,12 @@
-import React, {useState} from "react";
+import React, {useState,useRef} from "react";
 import Card from "../UI/Card";
 import classes from './AddUser.module.css';
 import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
 
 const AddUser = props =>{
+    // const nameInputRef = useRef();
+    // const ageInputRef = useRef();
     const [enteredUsername, setEnteredUsername] = useState('');
     const [enteredUserage, setEnteredUserage] = useState(''); //initialize with string here
     //dynamic modal message
@@ -62,10 +64,15 @@ return(
     <form onSubmit={addUserHandler}>
         <label htmlFor='username'>UserName</label>
         <input id='username' type='text'
-               value={enteredUsername} onChange={usernameChangeHandler}/>
+               value={enteredUsername}
+               onChange={usernameChangeHandler}
+        // ref={nameInputRef}
+            />
         <label htmlFor='age'>Age (Years)</label>
         <input id='age' type='number'
-               value={enteredUserage} onChange={ageChangeHandler}/>
+               value={enteredUserage}
+               onChange={ageChangeHandler}
+            />
         <Button type='submit' onConfirm={errorHandler}>Add User</Button>
     </form>
         </Card>
